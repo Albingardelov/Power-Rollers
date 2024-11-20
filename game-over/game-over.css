@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100vh;
     margin: 0;
     background-color: rgb(232, 226, 226);
@@ -10,8 +11,8 @@ body {
 button {
     background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 5px solid goldenrod;
+    border-radius: 50px;
     margin: 10px;
     padding: 10px 20px;
     font-size: 1em;
