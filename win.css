@@ -1,0 +1,44 @@
+.game-model {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(232, 226, 226); /* Dark background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.game-model.show {
+  display: flex; /* Show model */
+}
+
+.model-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 500px;
+  width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.model-content img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.model-content h4 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.model-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
