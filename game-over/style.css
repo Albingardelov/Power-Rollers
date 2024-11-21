@@ -14,7 +14,8 @@ body {
     max-width: 400px;
     margin: auto;
     border: 1px solid #f5c6cb;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
 }
@@ -22,7 +23,8 @@ body {
 .container img {
     width: 125px;
     height: 125px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    /*box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);*/
 }
 
 .title {
@@ -46,10 +48,12 @@ body {
     font-size: 16px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .actions button:hover {
     background-color: #0056b3;
+    transform: scale(0.5)
 }
 
 @media (max-width:350px){
