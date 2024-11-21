@@ -10,7 +10,6 @@ export function getRandomWord(filteredWords) {
 }
 
 const filteredWords = filterWords(words);
-
 const randomWord = getRandomWord(filteredWords);
 
 
