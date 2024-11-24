@@ -18,8 +18,8 @@ h1{
     padding: 20px 30px;
     position: relative;
     margin: auto;
-   height: 350px;
-    width: 450px;
+   /* height: 350px;
+    width: 450px; */
 }
 .figure-container{
     fill: transparent;
@@ -105,3 +105,8 @@ h1{
 .notification-container.show{
     transform: translateY(-50px);
 }
+
+#head, #body, #arms, #legs {
+    visibility: hidden;
+  }
+  
