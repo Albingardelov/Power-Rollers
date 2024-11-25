@@ -1,16 +1,16 @@
-const word = localStorage.getItem('word')
-const guesses = localStorage.getItem('guesses')
+const word = localStorage.getItem('correctWord')
+const guesses = localStorage.getItem('guessCount')
 
 // display
-document.getElementById('word').innerText = word;
-document.getElementById('guesses').innerText = guesses;
+document.getElementById('correct-word').textContent = 'The right word: ${correctWord'
+document.getElementById('guesses').textContent = 'Total guess: ${guessCount'
 
 // Function for the button "Play Again"
 document.getElementById('play-again').addEventListener('click', () => {
-    window.location.href = ''
+    window.location.href = 'play.html'
 });
 
 // Function for the button "View Heigh Scores"
 document.getElementById('view-scores').addEventListener('click', () => {
-    window.location.href = ''
+    window.location.href = 'scores.html'
 });
