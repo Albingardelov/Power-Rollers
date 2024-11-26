@@ -7,7 +7,7 @@ document.getElementById('guesses').textContent = 'Total guess: ${guessCount'
 
 // Function for the button "Play Again"
 document.getElementById('play-again').addEventListener('click', () => {
-    window.location.href = 'play.html'
+    window.location.href = 'game.html'
 });
 
 // Function for the button "View Heigh Scores"
