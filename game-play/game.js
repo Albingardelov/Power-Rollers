@@ -2,7 +2,7 @@
 
 
 // script1.js (main game script)
-import { words } from './svgword.js';
+import { words } from "../svenska-ord.js";
 
 document.addEventListener('DOMContentLoaded', function () {
    // Game state variables
