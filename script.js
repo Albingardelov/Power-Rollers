@@ -11,3 +11,14 @@ document.getElementById('submitButton').addEventListener('click', function() {
         message.style.color = 'red';
     }
 });
+//  "Click Here To Start"
+document.querySelector('.click p').addEventListener('click', function () {
+    const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); 
+    audio.play(); // Play the sound
+
+    // Stop the audio after 10 seconds
+    setTimeout(function () {
+        audio.pause(); // Pause the audio
+        audio.currentTime = 0; // Reset the audio to the beginning
+    }, 10000); 
+});

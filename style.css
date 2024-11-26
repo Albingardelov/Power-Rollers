@@ -5,7 +5,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f9f9f9;
+    background-color: #b783b3;
     animation: glowing 1.5s infinite alternate; 
 }
 .welcome{
@@ -20,20 +20,24 @@ body {
 }
 
 .container {
+    margin-top: 20px; 
     padding: 20px;
-    border: 5px solid #800080; 
-    background-color: #e6ccff; 
+    border: 5px solid #800080;
+    background-color: #e6ccff;
     border-radius: 15px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
     width: 60%;
-    height: 40%;
-    text-align: center; 
-	box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
-    animation: glowing 1.5s infinite alternate; 
+    text-align: center;
+    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
+    animation: glowing 1.5s infinite alternate;
 }
+	
 
 
 input {
+	margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
     width: 200px;
@@ -58,6 +62,20 @@ p {
     font-size: 18px;
     color: #333;
 }
+.click {
+    margin-top: 80px; 
+    text-align: center;
+    border: 5px solid #800080;
+    background-color: #e6ccff;
+    border-radius: 15px;
+    display: flex;
+	flex-direction: column;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
+    animation: glowing 1.5s infinite alternate;
+}
 @keyframes glowing {
     0% {
         box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
@@ -69,4 +87,6 @@ p {
         box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
     }
 }
+
+
 
