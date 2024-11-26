@@ -11,7 +11,7 @@ document.getElementById('submitButton').addEventListener('click', function() {
         message.style.color = 'red';
     }
 });
-// For "Click Here To Start"
+//  "Click Here To Start"
 document.querySelector('.click p').addEventListener('click', function () {
     const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); 
     audio.play(); // Play the sound
@@ -20,5 +20,5 @@ document.querySelector('.click p').addEventListener('click', function () {
     setTimeout(function () {
         audio.pause(); // Pause the audio
         audio.currentTime = 0; // Reset the audio to the beginning
-    }, 10000); // 10 seconds in milliseconds
+    }, 10000); 
 });
