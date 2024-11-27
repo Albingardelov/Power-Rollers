@@ -33,9 +33,23 @@ const hangmanImages = [
 const wordDisplay = document.querySelector('#word-display');
 const guessedLettersDisplay = document.querySelector('#guessed-letters');
 const hangmanImage = document.querySelector('#hangman-image');
-const letterInput = document.querySelector('#letter');
 const gameOverMessage = document.querySelector('#game-over-message');
 const newGameButton = document.querySelector('#new-game-btn');
+const keyboardContainer = document.querySelector('#keyboard-container');
+
+// Function to create the on-screen keyboard
+function createKeyboard() {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyzåäö';
+    keyboardContainer.innerHTML = '';  // Clear any existing buttons
+
+    for (let letter of alphabet) {
+        const button = document.createElement('button');
+        button.textContent = letter.toUpperCase();
+        button.classList.add('keyboard-btn');
+        button.addEventListener('click', () => handleGuess(letter));
+        keyboardContainer.appendChild(button);
+    }
+}
 
 // Function to choose a random word from the filtered list
 function chooseWord() {
@@ -62,25 +76,20 @@ function updateHangmanImage() {
 
 // Function to update the guessed letters display
 function updateGuessedLetters() {
-    guessedLettersDisplay.textContent = 'Guessed Letters: ' + guessedLetters.join(', ');
+    guessedLettersDisplay.textContent = 'Incorrect Letters: ' + guessedLetters.join(', ');
 }
 
 // Function to handle a new guess
-function handleGuess() {
-    const guess = letterInput.value.toLowerCase();
-    letterInput.value = ''; // Clear input field
+function handleGuess(letter) {
+    // Prevent invalid or repeated input
+    if (guessedLetters.includes(letter)) return; // Ignore if letter already guessed
 
-    // Prevent empty or invalid input
-    if (!guess || guessedLetters.includes(guess) || !/[a-ö]/i.test(guess)) {
-        return;
-    }
-
-    guessedLetters.push(guess);
-    if (chosenWord.includes(guess)) {
+    guessedLetters.push(letter);
+    if (chosenWord.includes(letter)) {
         // Correct guess: Update displayed word
         let newDisplayedWord = '';
         for (let i = 0; i < chosenWord.length; i++) {
-            newDisplayedWord += (chosenWord[i] === guess) ? guess : displayedWord[i];
+            newDisplayedWord += (chosenWord[i] === letter) ? letter : displayedWord[i];
         }
         displayedWord = newDisplayedWord;
     } else {
@@ -95,24 +104,26 @@ function handleGuess() {
     // Check if the game is over
     if (incorrectGuesses >= maxIncorrectGuesses) {
         gameOverMessage.textContent = `Game Over! The word was: ${chosenWord}`;
-        letterInput.disabled = true; 
+        disableKeyboard();
     } else if (!displayedWord.includes('_')) {
         gameOverMessage.textContent = 'You Win! Congratulations!';
-        letterInput.disabled = true; 
+        disableKeyboard();
     }
+}
+
+
+function disableKeyboard() {
+    const allButtons = keyboardContainer.querySelectorAll('button');
+    allButtons.forEach(button => button.disabled = true);
 }
 
 // Reset the game
 function resetGame() {
-    letterInput.disabled = false;
+    createKeyboard();
     chooseWord();
 }
 
-// Start a new game as soon as the script is loaded
 chooseWord();
+createKeyboard();
 
-// Add event listener for input (instead of relying on onclick or DOMContentLoaded)
-letterInput.addEventListener('input', handleGuess);
-
-// Reset the game when the "New Game" button is clicked
 newGameButton.addEventListener('click', resetGame);
