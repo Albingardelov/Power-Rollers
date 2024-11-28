@@ -58,11 +58,13 @@ button:hover {
 }
 
 p {
+	font-weight: bold;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 25px;
     color: #333;
 }
 .click {
+	
     margin-top: 80px; 
     text-align: center;
     border: 5px solid #800080;

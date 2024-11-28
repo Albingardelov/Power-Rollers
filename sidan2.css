@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+}
+  
+  .container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw; 
+	height: 100vh; 
+	position: relative;
+  }
+  .background-image {
+	position: absolute;
+	top:0;
+    width: 100%;
+	height: 100%;
+
+  }
+  .button-container {
+	position: absolute;
+	bottom: 20%;
+	width: 100%;
+	text-align: center;
+  }
+  
+  .btn {
+	padding: 50px 50px;
+	margin: 10px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  .easy, .medium, .hard {
+	background-color: rgb(234, 124, 69);
+  }
+  /* Animation for button click */
+button:active {
+	transform: translateY(15px); /* Push the button down when user clicked */
+  }
+  
+  /* Shake animation for the button when  user clicked (vertical movement) */
+  @keyframes shake {
+	25% { transform: translateY(-15px); }  /* Move up */
+	50% { transform: translateY(0); }      /* Back to the initial position */
+	75% { transform: translateY(10px); }   /* Move down */
+	100% { transform: translateY(0); }     /* Back to original position */
+  }
+  
+  /* Applying shake animation to the clicked button */
+  .btn.shake {
+	animation: shake 0.5s ease-in-out;
+  }
+  #message {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	text-align: center;
+	font-size: 70px;
+	font-weight: bold;
+  }
+  
