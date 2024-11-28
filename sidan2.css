@@ -35,3 +35,6 @@
 	border-radius: 5px;
 	cursor: pointer;
   }
+  .easy, .medium, .hard {
+	background-color: rgb(234, 124, 69);
+  }
