@@ -55,3 +55,12 @@ button:active {
   .btn.shake {
 	animation: shake 0.5s ease-in-out;
   }
+  #message {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	text-align: center;
+	font-size: 70px;
+	font-weight: bold;
+  }
+  
