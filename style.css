@@ -78,6 +78,9 @@ p {
     box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
     animation: glowing 1.5s infinite alternate;
 }
+a{
+	text-decoration: none;
+}
 @keyframes glowing {
     0% {
         box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
@@ -89,6 +92,3 @@ p {
         box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
     }
 }
-
-
-
