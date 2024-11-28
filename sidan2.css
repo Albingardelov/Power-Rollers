@@ -38,3 +38,20 @@
   .easy, .medium, .hard {
 	background-color: rgb(234, 124, 69);
   }
+  /* Animation for button click */
+button:active {
+	transform: translateY(15px); /* Push the button down when user clicked */
+  }
+  
+  /* Shake animation for the button when  user clicked (vertical movement) */
+  @keyframes shake {
+	25% { transform: translateY(-15px); }  /* Move up */
+	50% { transform: translateY(0); }      /* Back to the initial position */
+	75% { transform: translateY(10px); }   /* Move down */
+	100% { transform: translateY(0); }     /* Back to original position */
+  }
+  
+  /* Applying shake animation to the clicked button */
+  .btn.shake {
+	animation: shake 0.5s ease-in-out;
+  }
