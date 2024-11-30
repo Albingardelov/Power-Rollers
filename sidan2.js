@@ -1,12 +1,17 @@
+
+const easyButton = document.querySelector('.easy');
+const mediumButton = document.querySelector('.medium');
+const hardButton = document.querySelector('.hard');
+const buttons = document.querySelectorAll('.btn');
+const message = document.getElementById('message');
+
+/*for changing color and message to user*/
 function handleClick(level) {
-	const buttons = document.querySelectorAll('.btn');
-	const message = document.getElementById('message');
-  
-	// Reset all buttons to orange
-	buttons.forEach(btn => {
-	  btn.style.backgroundColor = 'orange';
-	  btn.classList.remove('shake'); // Remove shake class
-	});
+    buttons.forEach(button => {
+        button.style.backgroundColor = 'rgb(234, 124, 69)';
+        button.classList.remove('shake'); 
+    });
+
 
 	// Change color of clicked button and display message with color
 	if (level === 'easy') {
