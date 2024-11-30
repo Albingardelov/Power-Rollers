@@ -30,7 +30,11 @@ function handleClick(level) {
         message.textContent = 'You chose Hard!';
         message.style.color = 'red';
     }
+	
 }
+
+playMusic();
+
 /* adding event listener for buttons*/
 easyButton.addEventListener('click', function() {
     handleClick('easy');
@@ -43,3 +47,14 @@ mediumButton.addEventListener('click', function() {
 hardButton.addEventListener('click', function() {
     handleClick('hard');
 });
+/*function for playing music*/
+function playMusic() {
+	const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); 
+	audio.play(); 
+  
+	/*stopping music after 10s*/
+	setTimeout(function() {
+	  audio.pause(); 
+	  audio.currentTime = 0; 
+	}, 10000);
+  }
