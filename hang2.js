@@ -1,6 +1,5 @@
 import { words } from './svenska-ord.js';
 
-
 let selectedWord = '';
 let guessedLetters = [];
 let wrongLetters = [];
@@ -27,6 +26,9 @@ const body = document.querySelector("#body");
 const arms = document.querySelector("#arms");
 const legs = document.querySelector("#legs");
 
+const selectedLevel = localStorage.getItem('level') || 'medium'; // Standardnivå
+const wordLengthRange = JSON.parse(localStorage.getItem('wordLength')) || [13, 15]; // Standardintervall
+
 function restartHangMan() {
     ground.style.display = "none";
     scaffold.style.display = "none";
@@ -37,28 +39,22 @@ function restartHangMan() {
     hangMan = 0;
 }
 
-
 function drawHangMan() {
     if (hangMan === 0) {
         ground.style.display = "";
-        hangMan++;
     } else if (hangMan === 1) {
         scaffold.style.display = "";
-        hangMan++;
     } else if (hangMan === 2) {
         legs.style.display = "";
-        hangMan++;
     } else if (hangMan === 3) {
         arms.style.display = "";
-        hangMan++;
     } else if (hangMan === 4) {
         body.style.display = "";
-        hangMan++;
     } else if (hangMan === 5) {
         head.style.display = "";
-        hangMan++;
         showFinalMessage(`You Lose! The word was: ${selectedWord}`);
     }
+    hangMan++;
 }
 
 startButton.addEventListener('click', startGame);
@@ -76,18 +72,26 @@ keyboardContainer.addEventListener('click', function (e) {
 function startGame() {
     guessedLetters = [];
     wrongLetters = [];
-    remainingGuesses = 6;
+    remainingGuesses = 6; // Alltid 6 gissningar
     hangMan = 0;
-    finalMsgContainer.style.display = 'none';
-    document.querySelectorAll('.key').forEach(button => button.disabled = false);
 
-    const filteredWords = words.filter(word => /^[a-ö]{10}$/i.test(word)).map(word => word.toLowerCase());
-    selectedWord = filteredWords[Math.floor(Math.random() * filteredWords.length)];
+    finalMsgContainer.style.display = 'none'; // Döljer slutmeddelandet
+    document.querySelectorAll('.key').forEach(button => (button.disabled = false)); // Aktivera alla knappar
 
-    updateWordDisplay();
-    updateWrongLettersDisplay();
-    createKeyboard();
-    restartHangMan();
+    const filteredWords = words.filter(
+        (word) => word.length >= wordLengthRange[0] && word.length <= wordLengthRange[1]
+    );
+    if (filteredWords.length === 0) {
+        alert('No words available for this difficulty. Defaulting to medium.');
+        selectedWord = words[Math.floor(Math.random() * words.length)];
+    } else {
+        selectedWord = filteredWords[Math.floor(Math.random() * filteredWords.length)];
+    }
+
+    updateWordDisplay(); // Uppdatera ordet i spelet
+    updateWrongLettersDisplay(); // Uppdatera felaktiga bokstäver
+    createKeyboard(); // Skapa tangentbord
+    restartHangMan(); // Återställ galgen
 }
 
 function createKeyboard() {
@@ -141,14 +145,18 @@ function checkGameStatus() {
     } else if (remainingGuesses <= 0) {
         losses++;
         scoreLose.innerText = losses;
+        showFinalMessage(`You Lose! The word was: ${selectedWord}`);
     }
 }
 
 function showFinalMessage(message) {
     finalMsgContainer.style.display = 'block';
     finalMessage.innerHTML = message;
-    playButton.addEventListener('click', startGame);
-}
 
+    playButton.onclick = () => {
+        finalMsgContainer.style.display = 'none'; // Dölj slutmeddelandet
+        startGame(); // Starta om spelet
+    };
+}
 
 startGame();
