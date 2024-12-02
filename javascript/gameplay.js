@@ -1,4 +1,4 @@
-import { words } from '../svenska-ord.js';
+import { words } from './svenska-ord.js';
 
 let selectedWord = '';
 let guessedLetters = [];
