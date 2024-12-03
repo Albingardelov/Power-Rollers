@@ -11,6 +11,10 @@ document.getElementById('submitButton').addEventListener('click', function() {
         message.style.color = 'red';
     }
 });
+document.getElementById('startGame').addEventListener('click', function() {
+    document.getElementById('page1').classList.add('hidden');
+    document.getElementById('page2').classList.remove('hidden');
+});
 /* js for sidan 2*/
 
 const easyButton = document.querySelector('.easy');

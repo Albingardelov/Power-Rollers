@@ -8,6 +8,14 @@ body {
     background-color: #b783b3;
     animation: glowing 1.5s infinite alternate; 
 }
+.page {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
 .welcome{
 	position: absolute;
     top: 60px; 
