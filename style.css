@@ -8,19 +8,29 @@ body {
     background-color: #b783b3;
     animation: glowing 1.5s infinite alternate; 
 }
-.welcome{
-	position: absolute;
-    top: 60px; 
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
+.welcome {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 20px;
     font-weight: bold;
     color: #800080; 
     text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
+    height: 100px; 
+    width: 100%; 
+    margin-right: 60px; 
 }
 
+
+.main{
+	display: flex;
+	flex-direction: column;
+}
+
+
 .container {
-    margin-top: 20px; 
+  
+	margin: auto;
     padding: 20px;
     border: 5px solid #800080;
     background-color: #e6ccff;
