@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="sidan2.css"/>
     <link rel="stylesheet" href="game-over.css" />
     <link rel="stylesheet" href="game-view.css" />
     <link rel="stylesheet" href="score-view.css" />
@@ -13,6 +14,9 @@
     <script type="module" src="javascript/ui.js"></script>
 	<script type="module" src="javascript/helpers.mjs"></script>
 	<script type= "module" src="script.js"></script>
+	<script type= "module" src="sidan2.js"></script>
+	<script type= "module" src="script.js"></script>
+
   </head>
 
   <body>
@@ -30,6 +34,17 @@
 			
 		</div>
 	  </div>
+	  <!-- difficulty level -->
+	  <div class="container">
+		<img src="funny-skeleton-cartoon-character.jpg" alt="Background Image" class="background-image">
+		<div class="button-container">
+			<button class="btn easy" id="easyButton">Easy</button>
+			<button class="btn medium" id="mediumButton">Medium</button>
+			<button class="btn hard" id="hardButton">Hard</button>
+			</div>
+		<p id="message"></p>
+	  </div>
+
     <!-- Ni kan kopiera denna SVG.
 Använd CSS för att göra individuella "path" synliga, när man gissar fel.
 -->
