@@ -1,107 +1,133 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    background-color: rgb(232, 226, 226);
-    color: #333;
-    display: flex;
-    flex-direction: column;
 
-    height: 50vh;
+body {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    /*overflow: hidden;*/
+    min-height: 100vh;
+    margin: 0;
+    background-color: #b783b3;
+    animation: glowing 1.5s infinite alternate; 
 }
-h1{
-    margin: 20px 0 0;
-}
-.game-contaniner{
-    padding: 20px 30px;
-    position: relative;
-    margin: auto;
-   height: 350px;
-    width: 450px;
-}
-.figure-container{
-    fill: transparent;
-    /*stroke: #fff;
-    stroke-width: 4px;
-    stroke-linecap: round;*/
-}
-.figure-part{
-    display:none;
-}
-.wrong-letters-continer{
-    position: absolute;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-}
-.wrong-letters-continer p{
-    margin: 0 0 5px;
-}
-.wrong-letters-continer span{
-    font-size: 24px;
-}
-
-.word{
-    display: flex;
-    position:absolute;
-    bottom: 10px;
+.welcome{
+	position: absolute;
+    top: 60px; 
     left: 50%;
-    transform: translate(-50%);
-}
-.letter {
-    border-bottom: 3px solid #87ceeb;
-    display: inline-flex;
+    transform: translateX(-50%);
     font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 3px;
-    height: 50px;
-    width: 20px;
+    font-weight: bold;
+    color: #800080; 
+    text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
 }
-.popup-container{
-    background-color:rgb(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.popup{
-    background-color: #2980b9;
-    border-radius: 5px;
-    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+
+.container {
+    margin-top: 20px; 
     padding: 20px;
+    border: 5px solid #800080;
+    background-color: #e6ccff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; 
     align-items: center;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
+    animation: glowing 1.5s infinite alternate;
 }
-.popup button{
-    cursor: pointer;
-    background-color:#fff;
-    color: #2980b9;
-    border:0;
-    margin-top: 15px;
-    padding: 12px 15px;
+	
+
+
+input {
+	margin-bottom: 10px;
+    padding: 10px;
     font-size: 16px;
+    width: 200px;
 }
-.popup button:active{
-    transform: scaleX(0.98) ;
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
 }
-.popup button:focus{
-    outline: 0;
+
+button:hover {
+    background-color: #45a049;
 }
-.notification-container{
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px 10px 0 0;
-    padding: 10px 15px;
-    position: absolute;
-    bottom: -50px;
-    transition: transform 0.3s ease-in-out;
+
+p {
+	font-weight: bold;
+    margin-top: 20px;
+    font-size: 25px;
+    color: #333;
 }
-.notification-container.show{
-    transform: translateY(-50px);
+.click {
+	
+    margin-top: 80px; 
+    text-align: center;
+    border: 5px solid #800080;
+    background-color: #e6ccff;
+    border-radius: 15px;
+    display: flex;
+	flex-direction: column;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
+    animation: glowing 1.5s infinite alternate;
+}
+a{
+	text-decoration: none;
+}
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+    }
+    50% {
+        box-shadow: 0 0 20px #ff7300, 0 0 30px #ff7300, 0 0 40px #ff7300;
+    }
+    100% {
+        box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+    }
+}
+@media (max-width: 350px) {
+    .welcome {
+        font-size: 18px;  
+        top: 20px;  
+
+    .container {
+        width: 90%;  
+        padding: 10px;
+    }
+
+    input {
+        width: 100%;  
+        padding: 12px;
+        font-size: 16px;
+        text-align: right; 
+    }
+
+    button {
+        width: 100%;  
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 18px;  
+        text-align: right; 
+    }
+
+    .click {
+        margin-top: 60px;  
+        padding: 10px;
+        width: 100%;  }
+    }
+}
+@media (min-width: 350px) and (max-width: 714px) {
+	h1{
+		font-size: 25px; 
+	}
 }
