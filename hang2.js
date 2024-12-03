@@ -172,7 +172,6 @@ function checkGameStatus() {
 
 function handleWin() {
     saveHighscore();
-    alert('You win! Your score has been added to the highscores.');
 }
 
 function handleGameOver() {
