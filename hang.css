@@ -1,0 +1,68 @@
+body {
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.hangman-container {
+    display: flex;
+    flex-direction: column; /* Kolumnlayout för att placera keyboard under SVG */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Mellanrum mellan SVG och tangentbord */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px; /* Begränsa bredden */
+}
+
+#hangman-svg {
+    width: 100%; /* Responsiv SVG */
+    height: auto;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap; /* Tillåt tangentbordet att använda flera rader */
+    justify-content: center; /* Centrera tangentbordets knappar */
+    gap: 5px; /* Mellanrum mellan knapparna */
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+	border: 1px solid black;
+}
+
+button:hover {
+    background-color: #6ad870;
+}
+
+button.key {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.key:disabled {
+    background-color: #7e7e7e;
+    cursor: not-allowed;
+}
+
+
