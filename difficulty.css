@@ -28,7 +28,6 @@
 	width: 100%;
 	text-align: center;
   }
-  
   .btn {
 	padding: 50px 50px;
 	margin: 10px;
@@ -38,6 +37,8 @@
 	border-radius: 5px;
 	cursor: pointer;
   }
+  
+  
   .easy, .medium, .hard {
 	background-color: rgb(234, 124, 69);
   }
@@ -82,5 +83,21 @@ button:active {
 	  bottom: 20%;
 	}
   }
+   /* Responsiv mellan 700 and 800 */
+  @media (min-width: 700px) and (max-width: 800px) {
+    .btn {
+        font-size: 14px; 
+        padding: 20px 30px; 
+    }
+
+    #message {
+        font-size: 35px;
+    }
+
+    .button-container {
+        width: 40%; 
+    }
+}
+
   
   
