@@ -100,9 +100,7 @@ p {
     box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
     animation: glowing 1.5s infinite alternate;
 }
-a{
-	text-decoration: none;
-}
+
 @keyframes glowing {
     0% {
         box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
@@ -152,4 +150,81 @@ a{
 	h1{
 		font-size: 25px; 
 	}
+}
+@media (max-width: 1200px) {
+    .container1 {
+        width: 70%;
+        padding: 15px;
+    }
+    input {
+        width: 180px;
+        padding: 12px;
+        font-size: 14px;
+    }
+    button {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+    p {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container1 {
+        width: 80%;
+        padding: 10px;
+    }
+    input {
+        width: 150px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    button {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container1 {
+        width: 90%;
+        padding: 8px;
+    }
+    input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+    p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container1 {
+        width: 90%;
+        padding: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+    button {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
 }
