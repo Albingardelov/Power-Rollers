@@ -10,6 +10,7 @@ function handleClick(level) {
         button.style.backgroundColor = 'rgb(234, 124, 69)';
         button.classList.remove('shake'); 
     });
+	
 
 
     // Change color of clicked button and display message with color

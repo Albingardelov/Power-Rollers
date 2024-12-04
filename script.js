@@ -6,9 +6,13 @@ document.getElementById('submitButton').addEventListener('click', function() {
     if (/^[a-zA-Z\u0600-\u06FF\s]+$/.test(nameInput)) { 
         message.textContent = `Hello ${nameInput}! Let's start!`;
         message.style.color = 'green';
+		message.style.fontSize = '25px';
+		message.style.textAlign = 'center';
     } else {
         message.textContent = 'Your name can only contain letters, Please try again.';
         message.style.color = 'red';
+		message.style.fontSize = '25px';
+		message.style.textAlign = 'center';
     }
 });
 let here=document.querySelector(".here")
