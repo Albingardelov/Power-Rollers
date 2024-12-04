@@ -1,133 +1,238 @@
 
 body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  
+  #intro-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #intro-container input,
+  #intro-container select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    background-color: #4c63af;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  #start-button:hover {
+    background-color: #455fa0;
+  }
+  
+  #name-error {
+    color: red;
+    font-weight: bold;
+    display: none;
+  }
+  
+  /* Game Container (after game starts) */
+  #game-container {
+    max-width: 400px;
+    margin: 0 auto;
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  #score-container {
+    font-size: 20px;
+    margin-bottom: 20px;
+	display:none;
+  }
+  
+  
+  #word-container {
+    font-size: 36px;
+    letter-spacing: 10px;
+    margin: 20px 0;
+  }
+  
+  #wrong-guesses {
+    font-size: 18px;
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  #keyboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  #keyboard-container button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #keyboard-container button:hover {
+    background-color: #ddd;
+  }
+  
+  #game-status {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  #hangman-image img {
+    width: 150px;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  #play-again-button,
+  #reset-button,
+  #show-high-scores {
+    padding: 8px 16px;
+    background-color: #4c65af;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #play-again-button:hover,
+  #reset-button:hover,
+  #show-high-scores:hover {
+    background-color: #45a049;
+  }
+  
+  #play-again-button {
+    display: none;
+  }
+  
+  #reset-button {
+    display: none;
+  }
+  
+  /* High Scores Container */
+  #high-scores-container {
+    margin-top: 40px;
+  }
+  
+  #high-scores-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  #high-scores-list li {
+    margin: auto;
+  }
+  
+  #high-scores-list li span {
+    font-weight: bold;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #b783b3;
-    animation: glowing 1.5s infinite alternate; 
-}
-.welcome{
-	position: absolute;
-    top: 60px; 
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
-    font-weight: bold;
-    color: #800080; 
-    text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
+    z-index: 1000;
 }
 
-.container {
-    margin-top: 20px; 
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: white;
     padding: 20px;
-    border: 5px solid #800080;
-    background-color: #e6ccff;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    width: 60%;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
-    animation: glowing 1.5s infinite alternate;
-}
-	
-
-
-input {
-	margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button {
-    padding: 10px 20px;
+.popup-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-content ul li {
+    margin: 10px 0;
     font-size: 16px;
-    background-color: #4CAF50;
+    color: #555;
+}
+
+.popup-content button {
+    background-color: #007bff;
     color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 10px;
+    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #45a049;
+.popup-content button:hover {
+    background-color: #0056b3;
 }
-
-p {
-	font-weight: bold;
-    margin-top: 20px;
-    font-size: 25px;
-    color: #333;
-}
-.click {
-	
-    margin-top: 80px; 
-    text-align: center;
-    border: 5px solid #800080;
-    background-color: #e6ccff;
-    border-radius: 15px;
-    display: flex;
-	flex-direction: column;
-    padding: 10px;
-    width: auto;
-    height: auto;
-    box-shadow: 0 0 10px 5px #800080, 0 0 20px 10px #800080, 0 0 30px 15px #800080;
-    animation: glowing 1.5s infinite alternate;
-}
-a{
-	text-decoration: none;
-}
-@keyframes glowing {
-    0% {
-        box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+  
+  
+  @media (max-width: 500px) {
+    #intro-container,
+    #game-container {
+      width: 100%;
+      padding: 10px;
     }
-    50% {
-        box-shadow: 0 0 20px #ff7300, 0 0 30px #ff7300, 0 0 40px #ff7300;
+  
+    #keyboard-container {
+      /* flex-direction: column; */
+      gap: 5px;
     }
-    100% {
-        box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+  
+    #keyboard-container button {
+      width: 50px;
+      height: 50px;
     }
-}
-@media (max-width: 350px) {
-    .welcome {
-        font-size: 18px;  
-        top: 20px;  
-
-    .container {
-        width: 90%;  
-        padding: 10px;
+  
+    #word-container {
+      font-size: 28px;
     }
-
-    input {
-        width: 100%;  
-        padding: 12px;
-        font-size: 16px;
-        text-align: right; 
-    }
-
-    button {
-        width: 100%;  
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 18px;  
-        text-align: right; 
-    }
-
-    .click {
-        margin-top: 60px;  
-        padding: 10px;
-        width: 100%;  }
-    }
-}
-@media (min-width: 350px) and (max-width: 714px) {
-	h1{
-		font-size: 25px; 
-	}
-}
+  }
+  

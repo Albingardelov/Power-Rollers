@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Type Your Name</title>
-    <link rel="stylesheet" href="./style.css">
-    <script type="module" src="./script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+  <script type="module" src="highscore-dialog.js"></script>
+  <script type="module" src="svenska-ord.js"></script>
 </head>
 <body>
-    <div class="welcome">
-        <h1>Welcome to the HangMan</h1>
+  <div id="intro-container">
+    <h1>Hangman Game</h1>
+    <p>Enter your name and choose a  level:</p>
+    <input type="text" id="player-name" placeholder="Enter your name" />
+    <div>
+      <label for="difficulty">Choose level:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
     </div>
-    <div class="container">
-        <h1>Please type your name here:</h1>
-        <input type="text" id="nameInput" placeholder="Type your name:">
-        <button id="submitButton">Submit</button>
-        <p id="message"></p>
-        <div class="click">
-            <a href="./difficulty.html" style="pointer-events: none; opacity: 0.5;">
-                <p>Click Here To Start</p>
-            </a>
-        </div>
+    <button id="start-button">Start Game</button>
+    <p id="name-error" style="color: red; display: none;">Please enter your name to start the game!</p>
+  </div>
+
+  <div id="game-container" style="display: none;">
+    <h1>Hangman Game</h1>
+    <div id="score-container">
+      <p>Score: <span id="score">0</span></p>
     </div>
+    <div id="hangman-image">
+      <img id="hangman-img" src="images/0.png" alt="Hangman">
+    </div>
+    <div id="word-container"></div>
+    <div id="wrong-guesses"></div>
+    <div id="keyboard-container"></div>
+    <p id="game-status"></p>
+    <button id="play-again-button" style="display: none;">Play Again</button>
+    <button id="reset-button" style="display: none;">Reset Game</button>
+    <button id="show-high-scores">Show High Scores</button>
+  </div>
+
+  <!-- <div id="high-scores-container">
+    <h2>High Scores</h2>
+    <ul id="high-scores-list"></ul>
+  </div> -->
+
+  <div id="high-scores-popup" class="popup hidden">
+    <div class="popup-content">
+        <h2>High Scores</h2>
+        <ul id="high-scores-list"></ul>
+        <button id="close-popup">Close</button>
+    </div>
+</div>
+
 </body>
 </html>
