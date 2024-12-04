@@ -11,3 +11,12 @@ document.getElementById('submitButton').addEventListener('click', function() {
         message.style.color = 'red';
     }
 });
+let here=document.querySelector(".here")
+let page1=document.querySelector(".page1")
+let page2=document.querySelector(".page2")
+here.addEventListener("click",()=>{
+	page1.style.display='none'
+	page2.style.display='block'
+
+
+})
