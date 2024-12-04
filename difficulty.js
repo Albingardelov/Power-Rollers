@@ -4,7 +4,7 @@ const hardButton = document.querySelector('.hard');
 const buttons = document.querySelectorAll('.btn');
 const message = document.getElementById('message');
 
-/for changing color and message to user/
+//function for buttons color and changing coler after shaking//
 function handleClick(level) {
     buttons.forEach(button => {
         button.style.backgroundColor = 'rgb(234, 124, 69)';
@@ -58,3 +58,6 @@ function playMusic() {
 	  audio.currentTime = 0; 
 	}, 10000);
   }
+  
+
+  
