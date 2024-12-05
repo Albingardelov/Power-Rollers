@@ -59,7 +59,7 @@ function startGame() {
 function selectWord() {
   let minLength, maxLength;
 
-  
+
   if (currentDifficulty === 'easy') {
     minLength = 2;
     maxLength = 6;
@@ -71,10 +71,10 @@ function selectWord() {
     maxLength = 17;
   }
 
-  
+
   const filteredWords = words.filter(word => {
     const normalizedWord = word.toLowerCase();
-    const isValidWord = /^[a-ö]+$/.test(normalizedWord); 
+    const isValidWord = /^[a-ö]+$/.test(normalizedWord);
     return (
       isValidWord &&
       normalizedWord.length >= minLength &&
@@ -82,17 +82,17 @@ function selectWord() {
     );
   });
 
-//   console.log('Filtered words:', filteredWords);
+  //   console.log('Filtered words:', filteredWords);
 
-  
+
   if (filteredWords.length === 0) {
     console.error('No valid words found for the current difficulty.');
     return;
   }
 
-  
+
   selectedWord = filteredWords[Math.floor(Math.random() * filteredWords.length)];
-//   console.log('Selected word:', selectedWord);
+  //   console.log('Selected word:', selectedWord);
 
   guessedLetters = [];
   wrongGuesses = 0;
@@ -116,25 +116,26 @@ function displayWrongGuesses() {
   const wrongLetters = guessedLetters.filter((letter) => !selectedWord.includes(letter))
 
   wrongGuessesContainer.textContent = `Wrong Guesses (${wrongGuesses}/${maxWrongGuesses}): ${wrongLetters.join(', ').toUpperCase()}`
-  
+
   /*wrongGuessesContainer.textContent = `Wrong Guesses: ${wrongGuesses}`;*/
 }
 
-function handleKeyPress(event) {
-  if (gameOver || !event.target.matches('button')) return;
+function handleKeyPress(letter, button = null) {
+  if (gameOver || guessedLetters.includes(letter)) return;
 
-  const letter = event.target.textContent.toLowerCase();
-
-  if (guessedLetters.includes(letter)) return;
-
+  letter = letter.toLowerCase();
   guessedLetters.push(letter);
 
+  if (button) button.disabled = true;
+
   if (selectedWord.includes(letter)) {
-    displayWord();
+    displayWord(); // Update the word display
+    if (button) button.style.backgroundColor = "lightgreen"; // Style the button if the guess is correct
   } else {
+    if (button) button.style.backgroundColor = "#f08080"; // Style the button if the guess is incorrect
     wrongGuesses++;
-    hangmanImage.src = hangmanImages[wrongGuesses];
-    displayWrongGuesses();
+    displayWrongGuesses(); // Update the wrong guesses display
+    hangmanImage.src = hangmanImages[wrongGuesses]; // Update hangman image
   }
 
   if (wrongGuesses >= maxWrongGuesses) {
@@ -143,6 +144,7 @@ function handleKeyPress(event) {
   }
 }
 
+
 function createKeyboard() {
   const alphabet = 'abcdefghijklmnopqrstuvwxyzåäö'.split('');
   keyboardContainer.innerHTML = '';
@@ -150,10 +152,11 @@ function createKeyboard() {
   alphabet.forEach(letter => {
     const button = document.createElement('button');
     button.textContent = letter.toUpperCase();
-    button.addEventListener('click', handleKeyPress);
+    button.addEventListener('click', () => handleKeyPress(letter, button));
     keyboardContainer.appendChild(button);
   });
 }
+
 
 function updateScore() {
   scoreContainer.textContent = `Score: ${score}`;
@@ -182,7 +185,7 @@ function saveHighScore() {
   highScores.push({
     name: playerName,
     score: score,
-    difficulty: currentDifficulty, 
+    difficulty: currentDifficulty,
     date: date,
   });
 
@@ -194,29 +197,29 @@ function saveHighScore() {
 }
 
 function displayHighScores(sortBy = 'score') {
-	const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-	const highScoresList = document.querySelector('#high-scores-list');
-	highScoresList.innerHTML = '';
-  
-	if (sortBy === 'score') {
-	  highScores.sort((a, b) => b.score - a.score);
-	} else if (sortBy === 'date') {
-	  highScores.sort((a, b) => {
-		const dateA = new Date(a.date);
-		const dateB = new Date(b.date);
-		return dateA - dateB;
-	  });
-	}
-  
-	highScores.forEach(scoreData => {
-	  const li = document.createElement('li');
-	  li.innerHTML = `
+  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  const highScoresList = document.querySelector('#high-scores-list');
+  highScoresList.innerHTML = '';
+
+  if (sortBy === 'score') {
+    highScores.sort((a, b) => b.score - a.score);
+  } else if (sortBy === 'date') {
+    highScores.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+  }
+
+  highScores.forEach(scoreData => {
+    const li = document.createElement('li');
+    li.innerHTML = `
 		<strong>${scoreData.name}</strong>: ${scoreData.score} points 
 		<br><small>Difficulty: ${scoreData.difficulty} | Played on: ${scoreData.date}</small>
 	  `;
-	  highScoresList.appendChild(li);
-	});
-  }
+    highScoresList.appendChild(li);
+  });
+}
 
 function playAgain() {
   guessedLetters = [];
