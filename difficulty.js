@@ -21,18 +21,18 @@ function handleClick(level) {
     if (level === 'easy') {
         easyButton.style.backgroundColor = 'green';
         easyButton.classList.add('shake');
-        message.textContent = 'You chose Easy!';
-        message.style.color = 'green';
+        message2.textContent = 'You chose Easy!';
+        message2.style.color = 'green';
     } else if (level === 'medium') {
         mediumButton.style.backgroundColor = 'blue';
         mediumButton.classList.add('shake');
-        message.textContent = 'You chose Medium!';
-        message.style.color = 'blue';
+        message2.textContent = 'You chose Medium!';
+        message2.style.color = 'blue';
     } else if (level === 'hard') {
         hardButton.style.backgroundColor = 'red';
         hardButton.classList.add('shake');
-        message.textContent = 'You chose Hard!';
-        message.style.color = 'red';
+        message2.textContent = 'You chose Hard!';
+        message2.style.color = 'red';
     }
 	   // Show page 2 and hide page 1
 	   page1.style.display = 'none';

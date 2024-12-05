@@ -28,6 +28,17 @@
 	width: 100%;
 	text-align: center;
   }
+  #message2 {
+    position: absolute;
+    bottom: 10%;
+    width: 50%;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgb(221, 210, 210);
+    visibility: visible; 
+}
+
   .btn {
 	padding: 50px 50px;
 	margin: 10px;
@@ -59,7 +70,7 @@ button:active {
   .btn.shake {
 	animation: shake 0.5s ease-in-out;
   }
-  #message {
+  #message2 {
 	position: absolute;
 	bottom: 10%;
 	width: 100%;
@@ -75,7 +86,7 @@ button:active {
 	  padding: 15px 25px;
 	}
   
-	#message {
+	#message2 {
 	  font-size: 30px;
 	}
   
@@ -90,7 +101,7 @@ button:active {
         padding: 20px 30px; 
     }
 
-    #message {
+    #message2 {
         font-size: 35px;
     }
 
