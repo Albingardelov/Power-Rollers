@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: lightgray;
     color: #333;
   }
   
@@ -12,13 +12,13 @@ body {
     margin-bottom: 20px;
   }
   
-  
   #intro-container {
     width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 5px solod black;
   }
   
   #intro-container input,
@@ -32,17 +32,20 @@ body {
   
   #start-button {
     padding: 10px 20px;
-    background-color: #4c63af;
+    background-color: #007bff;
     color: white;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
   
   #start-button:hover {
-    background-color: #455fa0;
+    background-color: #0056b3;
+    transform: scale(1.1)
   }
   
   #name-error {
@@ -120,18 +123,22 @@ body {
   #reset-button,
   #show-high-scores {
     padding: 8px 16px;
-    background-color: #4c65af;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
   
   #play-again-button:hover,
   #reset-button:hover,
   #show-high-scores:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
+    transform: scale(1.1)
   }
   
   #play-again-button {
@@ -235,4 +242,3 @@ body {
       font-size: 28px;
     }
   }
-  
