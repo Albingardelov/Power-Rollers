@@ -6,9 +6,7 @@ const message = document.getElementById('message');
 
 
 //function for buttons color and changing coler after shaking//
-easyButton.addEventListener("click",()=>{
-	message.innerText="you chose easy."
-})
+
 function handleClick(level) {
     buttons.forEach(button => {
         button.style.backgroundColor = 'rgb(234, 124, 69)';
