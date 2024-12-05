@@ -189,20 +189,30 @@ function saveHighScore() {
   console.log(JSON.parse(localStorage.getItem('highScores')));
 }
 
-function displayHighScores() {
-  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-  const highScoresList = document.querySelector('#high-scores-list');
-  highScoresList.innerHTML = '';
-
-  highScores.forEach(scoreData => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <strong>${scoreData.name}</strong>: ${scoreData.score} points 
-      <br><small>Difficulty: ${scoreData.difficulty} | Played on: ${scoreData.date}</small>
-    `;
-    highScoresList.appendChild(li);
-  });
-}
+function displayHighScores(sortBy = 'score') {
+	const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+	const highScoresList = document.querySelector('#high-scores-list');
+	highScoresList.innerHTML = '';
+  
+	if (sortBy === 'score') {
+	  highScores.sort((a, b) => b.score - a.score);
+	} else if (sortBy === 'date') {
+	  highScores.sort((a, b) => {
+		const dateA = new Date(a.date);
+		const dateB = new Date(b.date);
+		return dateA - dateB;
+	  });
+	}
+  
+	highScores.forEach(scoreData => {
+	  const li = document.createElement('li');
+	  li.innerHTML = `
+		<strong>${scoreData.name}</strong>: ${scoreData.score} points 
+		<br><small>Difficulty: ${scoreData.difficulty} | Played on: ${scoreData.date}</small>
+	  `;
+	  highScoresList.appendChild(li);
+	});
+  }
 
 function playAgain() {
   guessedLetters = [];
