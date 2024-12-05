@@ -104,7 +104,7 @@ body {
   }
   
   #keyboard-container button:hover {
-    background-color: #ddd;
+    background-color: darkgray;
   }
   
   #game-status {

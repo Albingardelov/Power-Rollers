@@ -113,7 +113,11 @@ function displayWord() {
 }
 
 function displayWrongGuesses() {
-  wrongGuessesContainer.textContent = `Wrong Guesses: ${wrongGuesses}`;
+  const wrongLetters = guessedLetters.filter((letter) => !selectedWord.includes(letter))
+
+  wrongGuessesContainer.textContent = `Wrong Guesses (${wrongGuesses}/${maxWrongGuesses}): ${wrongLetters.join(', ').toUpperCase()}`
+  
+  /*wrongGuessesContainer.textContent = `Wrong Guesses: ${wrongGuesses}`;*/
 }
 
 function handleKeyPress(event) {
