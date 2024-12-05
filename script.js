@@ -4,6 +4,7 @@ document.getElementById('submitButton').addEventListener('click', function() {
     const message = document.getElementById('message');
 
 	//for swedish and english names//
+	
     if (/^[a-zA-ZåäöÅÄÖ\s]+$/.test(nameInput)) { 
         message.textContent = `Hello ${nameInput}! Let's start!`;
         message.style.color = 'green';
@@ -16,6 +17,8 @@ document.getElementById('submitButton').addEventListener('click', function() {
 		message.style.textAlign = 'center';
     }
 });
+
+
 let here=document.querySelector(".here")
 let page1=document.querySelector(".page1")
 let page2=document.querySelector(".page2")

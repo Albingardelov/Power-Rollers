@@ -3,6 +3,8 @@ const mediumButton = document.querySelector('.medium');
 const hardButton = document.querySelector('.hard');
 const buttons = document.querySelectorAll('.btn');
 const message = document.getElementById('message');
+const page1 = document.querySelector('.page1');
+const page2 = document.querySelector('.page2');
 
 
 //function for buttons color and changing coler after shaking//
@@ -32,10 +34,15 @@ function handleClick(level) {
         message.textContent = 'You chose Hard!';
         message.style.color = 'red';
     }
+	   // Show page 2 and hide page 1
+	   page1.style.display = 'none';
+	   page2.style.display = 'block';
+   
+	   // Play music when a difficulty level is selected
+	   playMusic();
+   }
 
-}
 
-playMusic();
 
 /* adding event listener for buttons*/
 easyButton.addEventListener('click', function() {
