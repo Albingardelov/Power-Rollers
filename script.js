@@ -82,7 +82,7 @@ function selectWord() {
     );
   });
 
-  console.log('Filtered words:', filteredWords);
+//   console.log('Filtered words:', filteredWords);
 
   
   if (filteredWords.length === 0) {
@@ -92,7 +92,7 @@ function selectWord() {
 
   
   selectedWord = filteredWords[Math.floor(Math.random() * filteredWords.length)];
-  console.log('Selected word:', selectedWord);
+//   console.log('Selected word:', selectedWord);
 
   guessedLetters = [];
   wrongGuesses = 0;
