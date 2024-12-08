@@ -231,6 +231,7 @@ function playAgain() {
   selectWord();
   displayWord();
   displayWrongGuesses();
+  createKeyboard();
   gameStatus.textContent = '';
   playAgainButton.style.display = 'none';
   resetButton.style.display = 'inline-block';
