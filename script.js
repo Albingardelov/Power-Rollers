@@ -163,22 +163,25 @@ function updateScore() {
 }
 
 function gameWon() {
-  gameOver = true;
-  gameStatus.textContent = 'You won!';
-  score = (maxWrongGuesses - wrongGuesses) * 10;
-  saveHighScore();
-  playAgainButton.style.display = 'inline-block';
-  resetButton.style.display = 'inline-block';
-}
+	gameOver = true;
+	gameStatus.innerHTML = `You won!<br>Press the reset-button to change difficulty.`;
+	score = (maxWrongGuesses - wrongGuesses) * 10;
+	saveHighScore();
+	playAgainButton.style.display = 'inline-block';
+	resetButton.style.display = 'inline-block';
+  }
+  
 
 function gameLost() {
-  gameOver = true;
-  gameStatus.textContent = `Game Over! The word was: ${selectedWord}.   Press reset-button to change difficulty`;
-  score = 0;
-  saveHighScore();
-  playAgainButton.style.display = 'inline-block';
-  resetButton.style.display = 'inline-block';
+	gameOver = true;
+	gameStatus.innerHTML = `Game Over! The word was: ${selectedWord}<br>Press the reset-button to change difficulty.`;
+	score = 0;
+	saveHighScore();
+	playAgainButton.style.display = 'inline-block';
+	resetButton.style.display = 'inline-block';
 }
+  
+  
 
 function saveHighScore() {
   const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
