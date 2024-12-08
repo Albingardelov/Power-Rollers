@@ -168,14 +168,16 @@ function gameWon() {
   score = (maxWrongGuesses - wrongGuesses) * 10;
   saveHighScore();
   playAgainButton.style.display = 'inline-block';
+  resetButton.style.display = 'inline-block';
 }
 
 function gameLost() {
   gameOver = true;
-  gameStatus.textContent = `Game Over! The word was: ${selectedWord}`;
+  gameStatus.textContent = `Game Over! The word was: ${selectedWord}.   Press reset-button to change difficulty`;
   score = 0;
   saveHighScore();
   playAgainButton.style.display = 'inline-block';
+  resetButton.style.display = 'inline-block';
 }
 
 function saveHighScore() {
