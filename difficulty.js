@@ -3,6 +3,7 @@ const mediumButton = document.querySelector('.medium');
 const hardButton = document.querySelector('.hard');
 const buttons = document.querySelectorAll('.btn');
 const message = document.getElementById('message');
+const message2 = document.getElementById('message2');
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
 
